@@ -2,10 +2,14 @@ package controllers
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 
+	"github.com/gorilla/mux"
+	"github.com/mrmtsu/go-basic/api/auth"
 	"github.com/mrmtsu/go-basic/api/models"
 	"github.com/mrmtsu/go-basic/api/responses"
 	"github.com/mrmtsu/go-basic/api/utils/formaterror"
@@ -55,6 +59,7 @@ func (server *Server) GetUsers(w http.ResponseWriter, r *http.Request) {
 }
 
 func (server *Server) GetUser(w http.ResponseWriter, r *http.Request) {
+
 	vars := mux.Vars(r)
 	uid, err := strconv.ParseUint(vars["id"], 10, 32)
 	if err != nil {

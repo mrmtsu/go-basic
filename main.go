@@ -1,9 +1,7 @@
 package main
 
-import (
-	"fmt"
-)
+import "github.com/mrmtsu/go-basic/api"
 
 func main() {
-	fmt.Println("Hello, World!")
+	api.Run()
 }
